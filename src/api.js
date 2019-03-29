@@ -74,10 +74,6 @@ const misc = products.filter(
 );
 
 // handlers
-app.get("/", (req, res) => {
-  console.log("somebody meddled with root");
-  res.send("GET OUT OF MY ROOT!");
-});
 app.get("/customers", (req, res) => {
   console.log(":D");
   res.send(customers);
