@@ -4,6 +4,7 @@ const key = "haka_ton2"; // secret key
 // reqs
 const express = require("express");
 const app = express();
+app.use(express.static('build'))
 app.use(express.json());
 const fs = require("fs");
 const _ = require("underscore");
@@ -62,6 +63,7 @@ const containers = products.filter(
   product =>
     product.productType === "Bucket" || product.productType === "Basket"
 );
+const buckets = products.filter(product => product.productType === "Bucket");
 const misc = products.filter(
   product =>
     product.productType === "Notebook" ||
@@ -73,41 +75,41 @@ const misc = products.filter(
 );
 
 // handlers
-app.get("/", (req, res) => {
-  console.log("somebody meddled with root");
-  res.send("GET OUT OF MY ROOT!");
-});
-app.get("/customers", (req, res) => {
+app.get("/api/customers", (req, res) => {
   console.log(":D");
   res.send(customers);
 });
-app.get("/employees", (req, res) => {
+app.get("/api/employees", (req, res) => {
   console.log(":D");
   res.send(employees);
 });
-app.get("/products", (req, res) => {
+app.get("/api/products", (req, res) => {
   console.log(":D");
   res.send(products);
 });
-app.get("/stores", (req, res) => {
+app.get("/api/stores", (req, res) => {
   console.log(":D");
   res.send(stores);
 });
 
 // product-types
-app.get("/foods", (req, res) => {
+app.get("/api/products/foods", (req, res) => {
   console.log(":D");
   res.send(foods);
 });
-app.get("/drinks", (req, res) => {
+app.get("/api/products/drinks", (req, res) => {
   console.log(":D");
   res.send(drinks);
 });
-app.get("/containers", (req, res) => {
+app.get("/api/products/containers", (req, res) => {
   console.log(":D");
   res.send(containers);
 });
-app.get("/misc", (req, res) => {
+app.get("/api/products/containers/buckets", (req, res) => {
+  console.log(":D");
+  res.send(buckets);
+});
+app.get("/api/products/misc", (req, res) => {
   console.log(":D");
   res.send(misc);
 });
