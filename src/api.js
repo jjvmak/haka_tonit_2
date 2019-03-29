@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const fs = require("fs");
+const _ = require("underscore");
 
 // cors
 const cors = require("cors");
@@ -35,11 +36,18 @@ const customers = JSON.parse(
 const employees = JSON.parse(
   fs.readFileSync("../rData/employees/employees.json")
 );
-// products
 const products = JSON.parse(fs.readFileSync("../rData/products/products.json"));
-var foodWords = ["Pizza", "Chocolate Bar", "Gum", "Bread"];
-// stores
 const stores = JSON.parse(fs.readFileSync("../rData/stores/stores.json"));
+
+// product-types
+var foodWords = ["Pizza", "Chocolate Bar", "Gum", "Bread"];
+const foods = products.filter(
+  product =>
+    product.productType === "Pizza" ||
+    product.productType === "Chocolate Bar" ||
+    product.productType === "Gum" ||
+    product.productType === "Bread"
+);
 
 // handlers
 app.get("/", (req, res) => {
@@ -61,6 +69,12 @@ app.get("/products", (req, res) => {
 app.get("/stores", (req, res) => {
   console.log(":D");
   res.send(stores);
+});
+
+// product-types
+app.get("/foods", (req, res) => {
+  console.log(":D");
+  res.send(foods);
 });
 
 // open to localhost:6900
