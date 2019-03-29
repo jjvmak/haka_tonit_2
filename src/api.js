@@ -7,7 +7,6 @@ const app = express();
 app.use(express.json());
 
 // cors
-const modelFullId = client.modelPath(projectId, computeRegion, modelId);
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(cors());
