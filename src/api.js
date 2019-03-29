@@ -29,12 +29,17 @@ app.use((req, res, next) => {
 });
 
 // datas
-const customers = fs.readFileSync("../rData/customers/customers.json");
-const employees = fs.readFileSync("../rData/employees/employees.json");
+const customers = JSON.parse(
+  fs.readFileSync("../rData/customers/customers.json")
+);
+const employees = JSON.parse(
+  fs.readFileSync("../rData/employees/employees.json")
+);
 // products
-const products = fs.readFileSync("../rData/products/products.json");
+const products = JSON.parse(fs.readFileSync("../rData/products/products.json"));
+var foodWords = ["Pizza", "Chocolate Bar", "Gum", "Bread"];
 // stores
-const stores = fs.readFileSync("../rData/stores/stores.json");
+const stores = JSON.parse(fs.readFileSync("../rData/stores/stores.json"));
 
 // handlers
 app.get("/", (req, res) => {
@@ -43,19 +48,19 @@ app.get("/", (req, res) => {
 });
 app.get("/customers", (req, res) => {
   console.log(":D");
-  res.send(JSON.parse(customers));
+  res.send(customers);
 });
 app.get("/employees", (req, res) => {
   console.log(":D");
-  res.send(JSON.parse(employees));
+  res.send(employees);
 });
 app.get("/products", (req, res) => {
   console.log(":D");
-  res.send(JSON.parse(products));
+  res.send(products);
 });
 app.get("/stores", (req, res) => {
   console.log(":D");
-  res.send(JSON.parse(stores));
+  res.send(stores);
 });
 
 // open to localhost:6900
