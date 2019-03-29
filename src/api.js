@@ -56,8 +56,20 @@ const drinks = products.filter(
     product.productType === "Special Water" ||
     product.productType === "Cider" ||
     product.productType === "Lemonade" ||
-    product.productType === "Cola" ||
-    product.productType === ""
+    product.productType === "Cola"
+);
+const containers = products.filter(
+  product =>
+    product.productType === "Bucket" || product.productType === "Basket"
+);
+const misc = products.filter(
+  product =>
+    product.productType === "Notebook" ||
+    product.productType === "Helmet" ||
+    product.productType === "Keychain" ||
+    product.productType === "Tin Foil" ||
+    product.productType === "Pencil" ||
+    product.productType === "Helmet"
 );
 
 // handlers
@@ -90,6 +102,14 @@ app.get("/foods", (req, res) => {
 app.get("/drinks", (req, res) => {
   console.log(":D");
   res.send(drinks);
+});
+app.get("/containers", (req, res) => {
+  console.log(":D");
+  res.send(containers);
+});
+app.get("/misc", (req, res) => {
+  console.log(":D");
+  res.send(misc);
 });
 
 // open to localhost:6900
