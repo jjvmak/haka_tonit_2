@@ -1,5 +1,5 @@
 // secret key
-const key = "haka_ton1";
+const key = "haka_ton2";
 
 // Node requirements
 const express = require("express");
