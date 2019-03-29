@@ -1,10 +1,11 @@
-// secret key
-const key = "haka_ton2";
+// configs
+const key = "haka_ton2"; // secret key
 
 // reqs
 const express = require("express");
 const app = express();
 app.use(express.json());
+const fs = require("fs");
 
 // cors
 const cors = require("cors");
@@ -27,10 +28,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// datas
+const products = fs.readFileSync("../rData/products/products.json");
+
 // handlers
 app.get("/", (req, res) => {
   console.log("somebody meddled with root");
   res.send("GET OUT OF MY ROOT!");
+});
+app.get("/products", (req, res) => {
+  console.log(":D");
+  res.send(JSON.parse(products));
 });
 
 // open to localhost:6900
