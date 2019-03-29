@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import axios from 'axios';
+import './stylesheet.css'
 
 class App extends React.Component{
     state = {};
@@ -11,8 +12,21 @@ class App extends React.Component{
     }
     
     renderContent(){
-        return <div>
-            <p>Pls buy Gambina</p>
+        return <div className="container">
+            <div className="toolbar">
+                <h1>G-Market</h1>
+            </div>
+            <div className="content">
+                <ul>
+                    <li>Drinks</li>
+                    <li>Food</li>
+                    <li>Buckets</li>
+                    <li>Misc</li>
+                </ul>
+                <div className="footer">
+                    <p>Pls buy Gambina :)</p>
+                </div>
+            </div>
         </div>
     }
     
