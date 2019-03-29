@@ -4,6 +4,7 @@ const key = "haka_ton2"; // secret key
 // reqs
 const express = require("express");
 const app = express();
+app.use(express.static('build'))
 app.use(express.json());
 const fs = require("fs");
 const _ = require("underscore");
