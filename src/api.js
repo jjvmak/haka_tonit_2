@@ -48,6 +48,17 @@ const foods = products.filter(
     product.productType === "Gum" ||
     product.productType === "Bread"
 );
+const drinks = products.filter(
+  product =>
+    product.productType === "Premium Cider" ||
+    product.productType === "Alcohol Free Wine" ||
+    product.productType === "Beer" ||
+    product.productType === "Special Water" ||
+    product.productType === "Cider" ||
+    product.productType === "Lemonade" ||
+    product.productType === "Cola" ||
+    product.productType === ""
+);
 
 // handlers
 app.get("/", (req, res) => {
@@ -75,6 +86,10 @@ app.get("/stores", (req, res) => {
 app.get("/foods", (req, res) => {
   console.log(":D");
   res.send(foods);
+});
+app.get("/drinks", (req, res) => {
+  console.log(":D");
+  res.send(drinks);
 });
 
 // open to localhost:6900
