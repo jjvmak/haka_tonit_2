@@ -62,6 +62,7 @@ const containers = products.filter(
   product =>
     product.productType === "Bucket" || product.productType === "Basket"
 );
+const buckets = products.filter(product => product.productType === "Bucket");
 const misc = products.filter(
   product =>
     product.productType === "Notebook" ||
@@ -95,19 +96,23 @@ app.get("/stores", (req, res) => {
 });
 
 // product-types
-app.get("/foods", (req, res) => {
+app.get("/products/foods", (req, res) => {
   console.log(":D");
   res.send(foods);
 });
-app.get("/drinks", (req, res) => {
+app.get("/products/drinks", (req, res) => {
   console.log(":D");
   res.send(drinks);
 });
-app.get("/containers", (req, res) => {
+app.get("/products/containers", (req, res) => {
   console.log(":D");
   res.send(containers);
 });
-app.get("/misc", (req, res) => {
+app.get("/products/containers/buckets", (req, res) => {
+  console.log(":D");
+  res.send(buckets);
+});
+app.get("/products/misc", (req, res) => {
   console.log(":D");
   res.send(misc);
 });
