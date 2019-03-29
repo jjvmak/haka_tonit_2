@@ -3,12 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import axios from 'axios';
 import './stylesheet.css'
+import Results from './Results.js'
+
 
 class App extends React.Component{
-    state = {};
+    constructor(props) {
+        super(props);
+        this.findProducts = this.findProducts.bind(this)
+        this.state = {
+            productCategory: ''
+        };
+    }
     
     componentDidMount(){
 
+    }
+
+    findProducts(item){
+        this.setState({productCategory: item});
+        //Tänne tulee bäckiin pyyntö, mistä saa juomat ynnä muut
     }
     
     renderContent(){
@@ -18,11 +31,15 @@ class App extends React.Component{
             </div>
             <div className="content">
                 <ul>
-                    <li>Drinks</li>
-                    <li>Food</li>
-                    <li>Buckets</li>
-                    <li>Misc</li>
+                    <li onClick={(e) => this.findProducts("Drinks")}>Drinks</li>
+                    <li onClick={(e) => this.findProducts("Food")}>Food</li>
+                    <li onClick={(e) => this.findProducts("Containers")}>Containers</li>
+                    <li onClick={(e) => this.findProducts("Misc")}>Misc</li>
                 </ul>
+                {!this.state.productCategory !== ''&&
+                    <Results productCategory={this.state.productCategory}/>            
+                }
+                
                 <div className="footer">
                     <p>Pls buy Gambina :)</p>
                 </div>
@@ -35,6 +52,7 @@ class App extends React.Component{
             <div>
                 {this.renderContent()}
             </div>
+            
         )
     }
         
