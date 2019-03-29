@@ -11,3 +11,6 @@ app.get("/", (req, res) => {
   console.log("somebody meddled with root");
   res.send("GET OUT OF MY ROOT!");
 });
+
+// Open to localhost:6900
+app.listen(6900, () => console.log("Ready to gamibinify in port 6900.."));
