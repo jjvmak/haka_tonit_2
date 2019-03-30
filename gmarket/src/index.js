@@ -66,7 +66,9 @@ class App extends React.Component {
       <div className="container">
         <div className="toolbar">
           {/* <h1>G-Market</h1> */}
-          <img className="logo" src={logo} alt="R-Market Logo"></img>
+            <a href="http://bucketfinder.herokuapp.com">
+              <img className="logo" src={logo} alt="R-Market Logo"></img>
+            </a>
           <ul>
             <li
               className="navLink"
