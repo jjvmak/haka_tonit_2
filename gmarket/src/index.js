@@ -11,14 +11,17 @@ class App extends React.Component {
     super(props);
     this.findProducts = this.findProducts.bind(this);
     this.state = {
-      productCategory: ""
+      productCategory: "",
+      navDisplay: "",
     };
   }
 
   componentDidMount() {}
 
   findProducts(item) {
-    this.setState({ productCategory: item });
+    this.setState({ productCategory: item,
+                    navDisplay: "inline-block"
+     });
     //Tänne tulee bäckiin pyyntö, mistä saa juomat ynnä muut
   }
 
@@ -27,14 +30,14 @@ class App extends React.Component {
       <div className="container">
         <div className="toolbar">
           <h1>G-Market</h1>
+          <ul>
+            <li className="navLink" style={{display: this.state.navDisplay}}onClick={e => this.findProducts("Drinks")}>Drinks</li>
+            <li className="navLink" style={{display: this.state.navDisplay}}onClick={e => this.findProducts("Food")}>Food</li>
+            <li className="navLink" style={{display: this.state.navDisplay}}onClick={e => this.findProducts("Containers")}>Containers</li>
+            <li className="navLink" style={{display: this.state.navDisplay}}onClick={e => this.findProducts("Misc")}>Misc</li>
+          </ul>
         </div>
         <div className="content">
-          <ul>
-            <li onClick={e => this.findProducts("Drinks")}>Drinks</li>
-            <li onClick={e => this.findProducts("Food")}>Food</li>
-            <li onClick={e => this.findProducts("Containers")}>Containers</li>
-            <li onClick={e => this.findProducts("Misc")}>Misc</li>
-          </ul>
           {!this.state.productCategory !== "" && (
             <Results productCategory={this.state.productCategory} />
           )}

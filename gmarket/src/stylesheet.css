@@ -1,5 +1,5 @@
 /* Landscape styles  */
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1080px) {
   html,
   body,
   .container {
@@ -13,7 +13,6 @@
   .toolbar {
     display: block;
     width: 100%;
-    height: 100px;
     padding: 25px;
     text-align: center;
     box-sizing: border-box;
@@ -30,19 +29,22 @@
     font-family: "Quicksand", sans-serif;
     text-align: center;
   }
-  .content ul {
-    display: inline-block;
+  .toolbar ul {
+    display: block;
+    margin: auto;
     padding: 0;
     list-style: none;
+    transition: all 0.3s ease-out;
   }
-  .content li {
+  .navLink{
     margin: 25px;
+    font-family: "Quicksand", sans-serif;
     font-size: 35px;
     transition: all 0.3s ease-out;
   }
-  .content li:hover {
+  .navLink:hover {
     cursor: pointer;
-    color: rgb(155, 0, 0);
+    color: #eb3d00;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
   .footer {
@@ -57,7 +59,7 @@
     bottom: 0;
     color: white;
     text-align: center;
-    background-color: rgb(139, 0, 0);
+    background-color: #eb3d00;
   }
   .footer p {
     margin: 0;
@@ -103,8 +105,7 @@
 }
 
 /* Phone styles */
-
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 1079px) {
   html,
   body,
   .container {
@@ -121,7 +122,7 @@
     height: 80px;
     padding: 4px;
     box-sizing: border-box;
-    background-color: rgb(139, 0, 0);
+    background-color: #eb3d00;
   }
   .toolbar h1 {
     margin: 0;
@@ -135,13 +136,16 @@
     font-family: "Quicksand", sans-serif;
     text-align: center;
   }
-  .content ul {
+  .toolbar ul {
     display: inline-block;
     padding: 0;
     list-style: none;
   }
-  .content li {
-    margin: 25px;
+  .navLink {
+      display: inline-block;
+    width: 50%;
+    margin: 10px auto 10px auto;
+    text-align: center;
     font-size: 35px;
     transition: all 0.3s ease-out;
   }
@@ -152,11 +156,12 @@
     margin: 0;
     padding-top: 7px;
     box-sizing: border-box;
-    position: absolute;
+    clear: both;
+    position: relative;
     bottom: 0;
     color: white;
     text-align: center;
-    background-color: rgb(139, 0, 0);
+    background-color: #eb3d00;
   }
   .footer p {
     margin: 0;
@@ -172,6 +177,21 @@
   }
   .productContent {
     width: 95%;
-    background-color: yellow;
+    background-color: rgb(226, 226, 226);
+  }
+  .imageDiv img {
+    width: auto;
+    height: 240px;
+    margin-top: 20px;
+    margin-left: 20px;
+    object-fit: scale-down;
+    background-size: cover;
+    float: left;
+    border-radius: 20px;
+  }
+
+  .contentInfoDiv h2,
+  h3 {
+    color: #eb3d00;
   }
 }
