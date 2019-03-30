@@ -1,70 +1,177 @@
 /* Landscape styles  */
-@media only screen and (min-width: 900px){   
-    html, body, .container {
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        width: 100vw;
-        height: 98vh;
-    }
-    .toolbar {
-        display: block;
-        width: 100%;
-        height: 100px;
-        padding: 25px;
-        text-align: center;
-        box-sizing: border-box;
-        background-color: rgb(256, 256, 256);
-    }
-    .toolbar h1 {
-        margin: 0;
-        padding: 0;
-        font-size: 60px;
-        font-family: 'Lora', serif;
-        font-weight: lighter;
-    }
-    .content {
-        font-family: 'Quicksand', sans-serif;
-        text-align: center;
-    }
-    .content ul{
-        display: inline-block;
-        padding: 0;
-        list-style: none; 
-    }
-    .content li {
-        height: 25%;
-        margin: 25px;
-        font-size: 35px;
-        transition: all 0.3s ease-out;
+@media only screen and (min-width: 900px) {
+  html,
+  body,
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 100vw;
+    height: 98vh;
+  }
+  .toolbar {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 25px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgb(256, 256, 256);
+  }
+  .toolbar h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    font-family: "Lora", serif;
+    font-weight: lighter;
+  }
+  .content {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+  }
+  .content ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+  }
+  .content li {
+    margin: 25px;
+    font-size: 35px;
+    transition: all 0.3s ease-out;
+  }
+  .content li:hover {
+    cursor: pointer;
+    color: rgb(155, 0, 0);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .footer {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    padding-top: 7px;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    background-color: rgb(139, 0, 0);
+  }
+  .footer p {
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-    }
-    .content li:hover {
-        cursor: pointer;
-        color: rgb(155, 0, 0);
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-    .footer {
-        display:block;
-        width: 100%;
-        height: 30px;
-        margin: 0;
-        padding-top: 7px;
-        box-sizing: border-box;
-        position: absolute;
-        bottom: 0;
-        color: white;
-        text-align: center;
-        background-color: rgb(139, 0, 0);
-    }
-    .footer p {
-        margin: 0;
-        box-sizing: border-box;
-    }
+  /* Result container styles */
+  .productContainer {
+    width: 33.333333%;
+    margin: auto;
+    height: 300px;
+    display: flex;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .productContent {
+    box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.34);
+    position: relative;
+    width: 95%;
+    background-color: rgb(226, 226, 226);
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .imageDiv img {
+    width: auto;
+    height: 240px;
+    margin-top: 20px;
+    margin-left: 20px;
+    object-fit: scale-down;
+    background-size: cover;
+    float: left;
+    border-radius: 20px;
+  }
+
+  .contentInfoDiv h2,
+  h3 {
+    color: #eb3d00;
+  }
 }
 
 /* Phone styles */
-@media only screen and (max-width: 899px){   
 
+@media only screen and (max-width: 899px) {
+  html,
+  body,
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 100vw;
+    height: 98vh;
+  }
+  .toolbar {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 4px;
+    box-sizing: border-box;
+    background-color: rgb(139, 0, 0);
+  }
+  .toolbar h1 {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    font-size: 40px;
+    font-family: "Lora", serif;
+    font-weight: lighter;
+  }
+  .content {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+  }
+  .content ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+  }
+  .content li {
+    margin: 25px;
+    font-size: 35px;
+    transition: all 0.3s ease-out;
+  }
+  .footer {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    padding-top: 7px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    background-color: rgb(139, 0, 0);
+  }
+  .footer p {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .productContainer {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .productContent {
+    width: 95%;
+    background-color: yellow;
+  }
 }
