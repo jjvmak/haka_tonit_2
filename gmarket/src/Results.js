@@ -15,7 +15,7 @@ class Results extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="results">
         <div>
           {this.props.producList.map(item => (
             <Result

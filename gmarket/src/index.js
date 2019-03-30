@@ -89,16 +89,17 @@ class App extends React.Component {
             <Results producList={this.state.producList} />
           )}
 
-          <div className="footer">
+          
+        </div>
+        <div className="footer">
             <p>Pls buy Gambina :)</p>
           </div>
-        </div>
       </div>
     );
   }
 
   render() {
-    return <div>{this.renderContent()}</div>;
+    return <div className="wrapper">{this.renderContent()}</div>;
   }
 }
 
