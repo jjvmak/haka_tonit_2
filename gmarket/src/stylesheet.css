@@ -48,7 +48,7 @@
     list-style: none;
     transition: all 0.3s ease-out;
   }
-  .navLink{
+  .navLink {
     margin: 25px;
     font-family: "Quicksand", sans-serif;
     font-size: 35px;
@@ -125,6 +125,84 @@
   h3 {
     color: #eb3d00;
   }
+  /* Closer product view styles */
+  .shadowingBox {
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .closerProductView {
+    box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.34);
+    background-color: rgb(226, 226, 226);
+    width: 50%;
+    height: 300px;
+    border-radius: 20px;
+    position: absolute;
+    top: 33%;
+    left: 25%;
+  }
+  .closerProductView h2 {
+    color: #eb3d00;
+    font-family: "Quicksand", sans-serif;
+  }
+  .closerProductView p {
+    font-family: "Quicksand", sans-serif;
+  }
+
+  .realContent {
+    width: 70%;
+    height: 100%;
+    float: left;
+  }
+  .closerImageDiv img {
+    width: 25%;
+    height: 100%;
+    margin-top: 50px;
+    margin-left: 30px;
+    float: left;
+    border-radius: 20px;
+  }
+
+  .textInfo {
+    float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .info {
+    float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .recommends {
+    width: 30%;
+    height: 100%;
+    float: right;
+    background-color: #eb3d00;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+  }
+  .recommends h2 {
+    margin-top: 30px;
+    color: black;
+  }
+
+  .recImageDiv img {
+    width: 60%;
+    height: 100%;
+    border-radius: 20px;
+  }
 }
 
 /* Phone styles */
@@ -156,7 +234,7 @@
     font-weight: lighter;
   }
   .content {
-    display:block;
+    display: block;
     font-family: "Quicksand", sans-serif;
     text-align: center;
   }
@@ -173,9 +251,9 @@
     margin: 0 auto 0 auto;
     padding: 15px 5px;
     box-sizing: border-box;
-    border: solid 1px rgb(230,230, 230);
+    border: solid 1px rgb(230, 230, 230);
     text-align: center;
-    font-family: "Quicksand", sans-serif;    
+    font-family: "Quicksand", sans-serif;
     font-size: 30px;
     transition: all 0.3s ease-out;
     background-color: rgb(240, 240, 240);
