@@ -12,14 +12,15 @@ class App extends React.Component {
     this.findProducts = this.findProducts.bind(this);
     this.state = {
       productCategory: "",
-      producList: []
+      producList: [],
+      navDisplay: ""
     };
   }
 
   componentDidMount() {}
 
   findProducts(item) {
-    this.setState({ productCategory: item });
+    this.setState({ productCategory: item, navDisplay: "inline-block" });
     //Tänne tulee bäckiin pyyntö, mistä saa juomat ynnä muut
     var that = this;
     var realUrl;
@@ -52,14 +53,38 @@ class App extends React.Component {
       <div className="container">
         <div className="toolbar">
           <h1>G-Market</h1>
+          <ul>
+            <li
+              className="navLink"
+              style={{ display: this.state.navDisplay }}
+              onClick={e => this.findProducts("Drinks")}
+            >
+              Drinks
+            </li>
+            <li
+              className="navLink"
+              style={{ display: this.state.navDisplay }}
+              onClick={e => this.findProducts("Food")}
+            >
+              Food
+            </li>
+            <li
+              className="navLink"
+              style={{ display: this.state.navDisplay }}
+              onClick={e => this.findProducts("Buckets")}
+            >
+              Containers
+            </li>
+            <li
+              className="navLink"
+              style={{ display: this.state.navDisplay }}
+              onClick={e => this.findProducts("Misc")}
+            >
+              Misc
+            </li>
+          </ul>
         </div>
         <div className="content">
-          <ul>
-            <li onClick={e => this.findProducts("Drinks")}>Drinks</li>
-            <li onClick={e => this.findProducts("Food")}>Food</li>
-            <li onClick={e => this.findProducts("Buckets")}>Buckets</li>
-            <li onClick={e => this.findProducts("Misc")}>Misc</li>
-          </ul>
           {!this.state.productCategory !== "" && (
             <Results producList={this.state.producList} />
           )}
