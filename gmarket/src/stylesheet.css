@@ -239,11 +239,19 @@
   .toolbar {
     display: block;
     width: 100%;
-    margin-bottom: 0;
+    height: 100px;
+    margin-bottom: 35%;
     clear: both;
     box-sizing: border-box;
     background-color: #eb3d00;
   }
+  .logo {
+    width: 250px;
+    margin-top: -80px;
+    object-fit: cover;
+    background-size: cover;
+    overflow: hidden;
+}
   .toolbar h1 {
     margin: 0;
     padding: 10px;
@@ -260,7 +268,7 @@
   .toolbar ul {
     display: block;
     width: 100vw;
-    margin: 0;
+    margin-top: -90px;
     padding: 0;
     list-style: none;
   }
@@ -314,15 +322,17 @@
       margin-bottom: 0;
       background-color:white;
       border-radius: 20px;
+    overflow: none;
+
     }
   .imageDiv img {
     display: inline-block;
-    width: auto;
+    width: 270px;
     height: 230px;
     margin-top: 10px;
-    margin-left: 10px;
-    object-fit: scale-down;
+    object-fit: cover;
     background-size: cover;
+    overflow: none;
     vertical-align: middle;
     border-radius: 20px;
   }
