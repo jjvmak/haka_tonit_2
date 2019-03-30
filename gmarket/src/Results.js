@@ -13,7 +13,6 @@ class Results extends React.Component {
     this.state = { 
       cpvEmpty: false,
       selectedItem: 0,
-      allProducts: this.props.allProducts,
      };
   }
 
@@ -33,7 +32,7 @@ class Results extends React.Component {
         <div>
           {this.props.productList.map(item => (
             <Result 
-              handleClick={this.openPopUp}
+              handleClick={ () => this.openPopUp(item.id)}
               key={item.productString}
               productname={item.productString}
               price={item.priceInEuro}
@@ -52,7 +51,7 @@ class Results extends React.Component {
         </div>
         {!this.state.cpvEmpty === false && (
           <div onClick={this.openPopUp}>
-            <CloserProductView />
+            <CloserProductView selectedItem={this.state.selectedItem} allProducts={this.props.allProducts}/>
           </div>
         )}
         <p>{this.props.productCategory}</p>

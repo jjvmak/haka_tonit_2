@@ -29,8 +29,6 @@ class App extends React.Component {
     })
     .then(function(data) {
       that.setState({ allProducts: data });
-    console.log(data);
-
     });
 
   }
@@ -64,7 +62,6 @@ class App extends React.Component {
   }
 
   renderContent() {
-
     return (
       <div className="container">
         <div className="toolbar">
