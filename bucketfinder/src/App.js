@@ -5,20 +5,15 @@ import "./App.css";
 // Google Maps
 var APIkey = "AIzaSyChKzCo94RAilpNe8MQOzBMjYC7XhuaEGs";
 
-// map styling
-const mapStyle = {
-  height: "50vh"
-};
-const markerStyle = {
-  height: "50px",
-  width: "50px",
-  marginTop: "-50px"
-};
-const imgStyle = {
-  height: "100%"
-};
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const Marker = () => (
+  <div>
+    <img
+      style={{ margin: "-96px 0 0 -80px" }}
+      src="https://images.alko.fi/images/cs_srgb,f_auto,t_products/cdn/319027/gambina-muovipullo.jpg"
+      alt="marker"
+    />
+  </div>
+);
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -32,35 +27,17 @@ class SimpleMap extends Component {
   render() {
     return (
       <div>
-        <div
-          style={{
-            // header
-            height: "15vh",
-            width: "100%",
-            backgroundColor: "grey"
-          }}
-        />
+        <div id="header" />
         <div style={{ height: "70vh", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: APIkey }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
-            <AnyReactComponent
-              lat={59.955413}
-              lng={30.337844}
-              text="My Marker"
-            />
+            <Marker lat={59.955413} lng={30.337844} />
           </GoogleMapReact>
         </div>
-        <div
-          style={{
-            // footer
-            height: "15vh",
-            width: "100%",
-            backgroundColor: "grey"
-          }}
-        />
+        <div id="footer" />
       </div>
     );
   }
