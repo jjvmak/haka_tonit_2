@@ -11,15 +11,15 @@ class CloserProductView extends React.Component {
   }
 
   componentDidMount() {
-    var i;
-    var j;
-    for(i = 0; this.props.allProducts.length; i++){
-       for(j = 0; this.props.allProducts.length[i]; j++){
-         if(this.props.allProducts[j].id === this.props.selectedItem){
-           this.setState({selectedProduct: this.state.allProducts[i]})
-         }
-       }
-    }
+    // var i;
+    // var j;
+    // for(i = 0; this.props.allProducts.length; i++){
+    //    for(j = 0; this.props.allProducts.length[i]; j++){
+    //      if(this.props.allProducts[j].id === this.props.selectedItem){
+    //        this.setState({selectedProduct: this.state.allProducts[i]})
+    //      }
+    //    }
+    // }
   }
 
   render() {

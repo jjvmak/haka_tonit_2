@@ -39,7 +39,7 @@ class Result extends React.Component {
   render() {
     if (this.state.show) {
       return (
-        <div>
+        <div className="result">
           {!(this.state.show === false) &&
           <div className="productContainer" onClick={() => this.props.handleClick(this.props.id)}>
               <div className="productContent">
