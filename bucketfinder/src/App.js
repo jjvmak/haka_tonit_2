@@ -1,21 +1,41 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import "./App.css";
+import bucket from "./bucket.png";
 
 // Google Maps
 var APIkey = "AIzaSyChKzCo94RAilpNe8MQOzBMjYC7XhuaEGs";
 
 const Marker = () => (
   <div>
-    <img
-      style={{ margin: "-96px 0 0 -80px" }}
-      src="https://images.alko.fi/images/cs_srgb,f_auto,t_products/cdn/319027/gambina-muovipullo.jpg"
-      alt="marker"
-    />
+    <img src={bucket} alt="marker" style={{ width: "70px", height: "90px", margin: "-45px 0 0 -35px" }} />
   </div>
 );
 
-class SimpleMap extends Component {
+class BucketMap extends Component {
+  //requests
+  constructor(props) {
+    super(props);
+    this.state = {
+      asd: []
+    };
+  }
+  componentDidMount() {
+    var that = this;
+    const url = "http://localhost:6900/api/products/containers/buckets";
+    fetch(url)
+      .then(function (response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        that.setState({ asd: data });
+      });
+  }
+
+  // map props
   static defaultProps = {
     center: {
       lat: 59.95,
@@ -24,10 +44,17 @@ class SimpleMap extends Component {
     zoom: 11
   };
 
+  // rendering
   render() {
+    console.log(this.state.asd);
     return (
       <div>
         <div id="header" />
+        <div>
+          {this.state.asd.map(item => (
+            <li key={item.productString}>{item.productString}</li>
+          ))}
+        </div>
         <div style={{ height: "70vh", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: APIkey }}
@@ -43,4 +70,4 @@ class SimpleMap extends Component {
   }
 }
 
-export default SimpleMap;
+export default BucketMap;
