@@ -61,7 +61,7 @@ class BucketMap extends Component {
     // rendering
     render() {
         // console.log(this.state.buckets);
-        console.log(this.state.stores);
+        // console.log(this.state.stores);
         return (
             <div style={{
                 backgroundColor: "#282c34"
@@ -95,12 +95,20 @@ class BucketMap extends Component {
           </div> */}
                 </div>
                 <div style={{height: "70vh", width: "100%"}}>
+
+
                     <GoogleMapReact
                         bootstrapURLKeys={{key: APIkey}}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}
                     >
-                        <Marker lat={59.955413} lng={30.337844}/>
+
+                        {this.state.stores.map(item => (
+                            // <li >{item.productString}</li>
+                            <Marker key={item.guid} lat={item.latitude} lng={item.longitude}/>
+                        ))}
+
+
                     </GoogleMapReact>
                 </div>
                 <div style={{
