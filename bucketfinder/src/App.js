@@ -6,9 +6,11 @@ import bucket from "./bucket.png";
 // Google Maps
 var APIkey = "AIzaSyChKzCo94RAilpNe8MQOzBMjYC7XhuaEGs";
 
-const BucketMarker = ({ openBucket, testi }) => {
+const BucketMarker = ({ openBucket, storeId }) => {
   return (
-    <img src={bucket} alt="marker" style={{ width: "70px", height: "90px", margin: "-45px 0 0 -35px" }} onClick={() => openBucket({ testi })} />
+    <img src={bucket} alt="marker"
+      style={{ width: "70px", height: "90px", margin: "-45px 0 0 -35px" }}
+      onClick={() => openBucket({ storeId })} />
   )
 };
 
@@ -18,12 +20,30 @@ class BucketMap extends Component {
     super(props);
     this.state = {
       buckets: [],
-      stores: []
+      stores: [],
+      showBucket: false
     };
+    this.openBucket = this.openBucket.bind(this);
+    this.closeBucket = this.closeBucket.bind(this);
   }
 
-  openBucket(key) {
-    console.log(key)
+  openBucket(storeId) {
+    // event.preventDefault();
+    console.log(this.state.showBucket)
+    console.log(storeId)
+    this.setState({ showBucket: true }, () => {
+      document.addEventListener('click', this.closeBucket);
+    });
+  }
+
+  closeBucket(event) {
+    if (!this.bucketMenu.contains(event.target)) {
+
+      this.setState({ showBucket: false }, () => {
+        document.removeEventListener('click', this.closeBucket);
+      });
+
+    }
   }
 
   componentDidMount() {
@@ -50,7 +70,6 @@ class BucketMap extends Component {
       .then(function (data) {
         that.setState({ stores: data });
       });
-
   }
 
   // map props
@@ -98,10 +117,33 @@ class BucketMap extends Component {
             defaultZoom={this.props.zoom}
           >
             {this.state.stores.map(item => (
-              <BucketMarker key={item.guid} lat={item.latitude} lng={item.longitude} openBucket={this.openBucket} testi={item.guid}>
-
+              <BucketMarker
+                key={item.guid}
+                lat={item.latitude}
+                lng={item.longitude}
+                openBucket={this.openBucket}
+                storeId={item.guid}
+                state={this.state}>
               </BucketMarker>
             ))}
+            {
+              this.state.showBucket
+                ? (
+                  <div
+                    className="menu"
+                    ref={(element) => {
+                      this.bucketMenu = element;
+                    }}
+                  >
+                    <button> Menu item 1 </button>
+                    <button> Menu item 2 </button>
+                    <button> Menu item 3 </button>
+                  </div>
+                )
+                : (
+                  null
+                )
+            }
           </GoogleMapReact>
         </div>
         <div style={{
