@@ -16,13 +16,19 @@
     top:0;
     left:0;
   }
+  .container {
+      
+  }
   .toolbar {
     display: block;
     width: 100%;
     padding: 25px;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgb(256, 256, 256);
+  }
+  .logo {
+      width: 250px;
+      height: 250px;
   }
   .toolbar h1 {
     margin: 0;
@@ -35,7 +41,6 @@
     clear: both;
     font-family: "Quicksand", sans-serif;
     text-align: center;
-    background-color: red;
   }
   .results {
     height: 100%;
@@ -58,6 +63,9 @@
     cursor: pointer;
     color: #eb3d00;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .content {
+      
   }
   .footer {
     display: none;
@@ -116,10 +124,11 @@
   .contentSpecs {
       margin-top: 5%;
       position: absolute;
-      right: 14%;
+      right: 15%;
       bottom: 25px;
   }
   .contentInfoDiv h2 {
+      vertical-align: middle;
       height: 25;
   }
   .contentInfoDiv h2,
