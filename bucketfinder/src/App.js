@@ -14,6 +14,14 @@ const BucketMarker = ({ openBucket, storeId }) => {
   )
 };
 
+const BucketList = ({ bucket }) => {
+  return (
+    bucket.map(item => (
+      <li key={item.name}> {item.name} : {item.value}</li>
+    ))
+  )
+}
+
 class BucketMap extends Component {
   //requests
   constructor(props) {
@@ -29,8 +37,7 @@ class BucketMap extends Component {
   }
 
   openBucket(storeId) {
-    this.setState({ currentBucket: this.state.currentBucket = [] })
-
+    var entries = []
     var guids = this.state.buckets.map((bucket) => {
       var name = bucket.productString
       var keys = Object.keys(bucket.stockByStoreGUID)
@@ -38,35 +45,26 @@ class BucketMap extends Component {
       for (var i = 0; i < keys.length; i++) {
         if (keys[i] === storeId.storeId) {
           var entry = { name: name, value: values[i] }
-          console.log(entry)
-          this.setState({ currentBucket: this.state.currentBucket.push(entry) })
+          entries.push(entry)
+          console.log("1. " + JSON.stringify(entry))
         }
       }
       return "200ok"
     });
-    console.log(guids)
-    console.log(this.state.currentBucket)
+    console.log(guids[0])
 
 
-    // for (var i = 0; i < this.state.buckets.length; i++) {
-    //   var bucket = this.state.buckets[i];
-    //   console.log(Object.keys(bucket.stockByStoreGUID));
-
-    // }
-    // console.log(this.state.currentBucket)
-    // this.setState({ showBucket: true }, () => {
-    //   document.addEventListener('click', this.closeBucket);
-    // });
-
+    this.setState({ showBucket: true, currentBucket: entries }, () => {
+      document.addEventListener('click', this.closeBucket);
+    });
+    console.log("3. " + this.state.currentBucket)
   }
 
   closeBucket(event) {
     if (!this.bucketMenu.contains(event.target)) {
-
       this.setState({ showBucket: false }, () => {
         document.removeEventListener('click', this.closeBucket);
       });
-
     }
   }
 
@@ -107,8 +105,6 @@ class BucketMap extends Component {
 
   // rendering
   render() {
-    // console.log(this.state.buckets);
-    // console.log(this.state.stores);
     return (
       <div style={{
         backgroundColor: "#282c34"
@@ -145,7 +141,7 @@ class BucketMap extends Component {
                 key={item.guid}
                 lat={item.latitude}
                 lng={item.longitude}
-                openBucket={this.openBucket}
+                openBucket={this.openBucket.bind(this)}
                 storeId={item.guid}
                 state={this.state}>
               </BucketMarker>
@@ -159,10 +155,10 @@ class BucketMap extends Component {
                       this.bucketMenu = element;
                     }}
                   >
-                    <h1>:D</h1>
-                    <h1>:D</h1>
-                    <h1>:D</h1>
-                    <h1>:D</h1>
+                    <div>
+                      <BucketList bucket={this.state.currentBucket}>
+                      </BucketList>
+                    </div>
                   </div>
                 )
                 : (
