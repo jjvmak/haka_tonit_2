@@ -86,29 +86,16 @@ class BucketMap extends Component {
                     }}>
                         <p>Worlds most extensive bucket-retailer locator</p>
                     </div>
-
-
-                    {/* <div>
-            {this.state.asd.map(item => (
-              <li key={item.productString}>{item.productString}</li>
-            ))}
-          </div> */}
                 </div>
                 <div style={{height: "70vh", width: "100%"}}>
-
-
                     <GoogleMapReact
                         bootstrapURLKeys={{key: APIkey}}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}
                     >
-
                         {this.state.stores.map(item => (
-                            // <li >{item.productString}</li>
                             <Marker key={item.guid} lat={item.latitude} lng={item.longitude}/>
                         ))}
-
-
                     </GoogleMapReact>
                 </div>
                 <div style={{
