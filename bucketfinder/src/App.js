@@ -48,19 +48,36 @@ class BucketMap extends Component {
   render() {
     console.log(this.state.asd);
     return (
-      <div>
+      <div style={{
+        backgroundColor: "#282c34"
+      }}>
         <div style={{
           // header
           height: "15vh",
-          backgroundColor: "#282c34",
           color: "white",
-
+          paddingTop: "10px"
         }}>
-          <div>
+          <div style={{
+            // title
+            textAlign: "center",
+            fontSize: "22px"
+          }}>
+            <h1>BucketFinder</h1>
+          </div>
+          <div style={{
+            // motto
+            textAlign: "center",
+            fontSize: "17px",
+          }}>
+            <p>Worlds most extensive bucket-retailer locator</p>
+          </div>
+
+
+          {/* <div>
             {this.state.asd.map(item => (
               <li key={item.productString}>{item.productString}</li>
             ))}
-          </div>
+          </div> */}
         </div>
         <div style={{ height: "70vh", width: "100%" }}>
           <GoogleMapReact
@@ -72,10 +89,20 @@ class BucketMap extends Component {
           </GoogleMapReact>
         </div>
         <div style={{
-          height: "15vh",
-          backgroundColor: "#282c34"
-        }} />
-      </div>
+          color: "white",
+          paddingTop: "20px"
+        }}>
+          <div style={{
+            // bottom
+            textAlign: "center",
+            fontSize: "25px",
+            fontFamily: "Lora, serif",
+            fontWeight: "lighter"
+          }}>
+            <a href="https://g-market.herokuapp.com/">Powered by G-Market</a>
+          </div>
+        </div>
+      </div >
     );
   }
 }

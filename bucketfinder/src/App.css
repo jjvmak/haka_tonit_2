@@ -1,9 +1,13 @@
-#header {
-  height: 15vh;
-  background-color: #282c34;
-}
 
-#footer {
-  height: 15vh;
-  background-color: #282c34;
+p {
+  margin: 0
+}
+h1 {
+  margin: 0
+}
+a {
+  color: white
+}
+a:hover {
+  color: #eb3d00
 }
