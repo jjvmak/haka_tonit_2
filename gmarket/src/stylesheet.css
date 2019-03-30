@@ -130,7 +130,7 @@
     background-color: rgba(0, 0, 0, 0.25);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
@@ -139,12 +139,13 @@
   .closerProductView {
     box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.34);
     background-color: rgb(226, 226, 226);
-    width: 50%;
+    width: 730px;
     height: 300px;
+    margin-left: -365px;
     border-radius: 20px;
-    position: absolute;
+    position: fixed;
     top: 33%;
-    left: 25%;
+    left: 50%;
   }
   .closerProductView h2 {
     color: #eb3d00;
