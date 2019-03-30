@@ -4,7 +4,7 @@ import "./App.css";
 import bucket from "./bucket.png";
 
 // Google Maps
-var APIkey = "AIzaSyChKzCo94RAilpNe8MQOzBMjYC7XhuaEGs";
+var APIkey = "ENTER API KEY HERE";
 
 const BucketMarker = ({ openBucket, storeId }) => {
   return (
