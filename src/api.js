@@ -102,4 +102,5 @@ app.get("/api/products/misc", (req, res) => {
 });
 
 // open to localhost:6900
-app.listen(6900, () => console.log("Ready to gamibinify in port 6900.."));
+const PORT = process.env.PORT || 6900
+app.listen(PORT, () => console.log("Ready to gamibinify in port 6900.."));

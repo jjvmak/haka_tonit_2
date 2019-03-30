@@ -16,4 +16,4 @@ Run chmod ugo+x /usr/local/bin/start.sh
 
 Workdir /backend/src
 
-Entrypoint [ "start.sh" ]
+CMD [ "start.sh" ]
