@@ -10,19 +10,16 @@ class Results extends React.Component {
     super(props);
     this.openPopUp = this.openPopUp.bind(this);
 
-    this.state = { 
+    this.state = {
       cpvEmpty: false,
-      selectedItem: 0,
-     };
+      selectedItem: 0
+    };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
-  openPopUp (itemId) {
-    this.setState({ cpvEmpty: !this.state.cpvEmpty,
-                    selectedItem: itemId });
-    console.log("click");
+  openPopUp(itemId) {
+    this.setState({ cpvEmpty: !this.state.cpvEmpty, selectedItem: itemId });
     console.log(this.state.selectedItem);
   }
 
@@ -31,8 +28,8 @@ class Results extends React.Component {
       <div className="results">
         <div>
           {this.props.productList.map(item => (
-            <Result 
-              handleClick={ () => this.openPopUp(item.id)}
+            <Result
+              handleClick={() => this.openPopUp(item.id)}
               key={item.productString}
               productname={item.productString}
               price={item.priceInEuro}
@@ -45,13 +42,16 @@ class Results extends React.Component {
               store3stock={
                 item.stockByStoreGUID["ad43020a-978c-45d5-8b10-ff2841866448"]
               }
-              type={ item.productType }
+              type={item.productType}
             />
           ))}
         </div>
         {!this.state.cpvEmpty === false && (
           <div onClick={this.openPopUp}>
-            <CloserProductView selectedItem={this.state.selectedItem} allProducts={this.props.allProducts}/>
+            <CloserProductView
+              selectedItem={this.state.selectedItem}
+              allProducts={this.props.allProducts}
+            />
           </div>
         )}
         <p>{this.props.productCategory}</p>

@@ -7,25 +7,27 @@ class CloserProductView extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {selectedProduct: undefined};
+    this.state = { selectedProduct: 0 };
   }
 
   componentDidMount() {
-    var i;
-    var j;
-    for(i = 0; this.props.allProducts.length; i++){
-       for(j = 0; this.props.allProducts.length[i]; j++){
-         if(this.props.allProducts[j].id === this.props.selectedItem){
-           this.setState({selectedProduct: this.state.allProducts[i]})
-         }
-       }
-    }
+    const i = this.props.allProducts.filter(
+      item => item === this.props.selectedItem
+    );
+    console.log(i);
+    // var i;
+    // for (i = 0; this.props.allProducts.length; i++) {
+    //   if (this.props.allProducts[i].id === this.props.selectedItem) {
+    //     this.setState({ selectedProduct: this.state.allProducts[i] });
+    //   }
+    //   console.log(i);
+    //   break;
+    // }
   }
 
   render() {
-    console.log(this.props.allProducts[0])
-    console.log(this.props.selectedItem)
-    console.log(this.props.selectedProduct)
+    console.log(this.props.selectedItem);
+
     return (
       <div className="shadowingBox">
         <div className="closerProductView">
