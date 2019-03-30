@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 // import axios from 'axios';
 import "./stylesheet.css";
 import Results from "./Results.js";
-import Result from "./Result.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class App extends React.Component {
     this.findProducts = this.findProducts.bind(this);
     this.state = {
       productCategory: "",
-      producList: [],
+      productList: [],
       navDisplay: ""
     };
   }
@@ -43,12 +42,13 @@ class App extends React.Component {
         return response.json();
       })
       .then(function(data) {
-        that.setState({ producList: data });
+        that.setState({ productList: data });
       });
   }
 
   renderContent() {
-    console.log(this.state.producList);
+    console.log(this.state.productList);
+
     return (
       <div className="container">
         <div className="toolbar">
@@ -84,9 +84,10 @@ class App extends React.Component {
             </li>
           </ul>
         </div>
+
         <div className="content">
           {!this.state.productCategory !== "" && (
-            <Results producList={this.state.producList} />
+            <Results productList={this.state.productList} />
           )}
 
           <div className="footer">

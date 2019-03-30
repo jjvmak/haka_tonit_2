@@ -26,9 +26,9 @@ class Result extends React.Component {
             <h2>{this.props.productname}</h2>
             <p>Price {this.props.price}€</p>
             <h3>In stores:</h3>
-            <p>R-Citymarket: {this.props.store1stock}</p>
-            <p>Verkkokauppa: {this.props.store2stock}</p>
-            <p>Cool Store: {this.props.store3stock}</p>
+            <p>XOGGLE: {this.props.store1stock}</p>
+            <p>INEAR: {this.props.store2stock}</p>
+            <p>TASMANIA: {this.props.store3stock}</p>
           </div>
         </div>
       </div>
