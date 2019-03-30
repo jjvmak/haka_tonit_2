@@ -165,7 +165,7 @@
     padding-top: 7px;
     box-sizing: border-box;
     clear: both;
-    position: relative;
+    position: absolute;
     bottom: 0;
     color: white;
     text-align: center;
