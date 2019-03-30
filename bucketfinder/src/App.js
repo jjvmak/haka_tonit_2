@@ -155,7 +155,7 @@ class BucketMap extends Component {
                       this.bucketMenu = element;
                     }}
                   >
-                    <div>
+                    <div id="list">
                       <BucketList bucket={this.state.currentBucket}>
                       </BucketList>
                     </div>
