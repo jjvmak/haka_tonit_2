@@ -30,9 +30,6 @@ class BucketMap extends Component {
 
   openBucket(storeId) {
     this.setState({ currentBucket: this.state.currentBucket = [] })
-    // event.preventDefault();
-    // console.log(this.state.showBucket)
-    // console.log(storeId.storeId)
 
     var guids = this.state.buckets.map((bucket) => {
       var name = bucket.productString
@@ -47,6 +44,7 @@ class BucketMap extends Component {
       }
       return "200ok"
     });
+    console.log(guids)
     console.log(this.state.currentBucket)
 
 
@@ -74,7 +72,7 @@ class BucketMap extends Component {
 
   componentDidMount() {
     var that = this;
-    const url = "http://localhost:6900/api/products/containers/buckets";
+    const url = "/api/products/containers/buckets";
     fetch(url)
       .then(function (response) {
         if (response.status >= 400) {
@@ -85,7 +83,7 @@ class BucketMap extends Component {
       .then(function (data) {
         that.setState({ buckets: data });
       });
-    const storeUrl = "http://localhost:6900/api/stores";
+    const storeUrl = "/api/stores";
     fetch(storeUrl)
       .then(function (response) {
         if (response.status >= 400) {
