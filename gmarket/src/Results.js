@@ -10,22 +10,30 @@ class Results extends React.Component {
     super(props);
     this.openPopUp = this.openPopUp.bind(this);
 
-    this.state = { cpvEmpty: false };
+    this.state = { 
+      cpvEmpty: false,
+      selectedItem: 0,
+      allProducts: this.props.allProducts,
+     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
-  openPopUp() {
-    this.setState({ cpvEmpty: !this.state.cpvEmpty });
+  openPopUp (itemId) {
+    this.setState({ cpvEmpty: !this.state.cpvEmpty,
+                    selectedItem: itemId });
     console.log("click");
+    console.log(this.state.selectedItem);
   }
 
   render() {
     return (
       <div className="results">
-        <div onClick={this.openPopUp}>
+        <div>
           {this.props.productList.map(item => (
-            <Result
+            <Result 
+              handleClick={this.openPopUp}
               key={item.productString}
               productname={item.productString}
               price={item.priceInEuro}
@@ -38,6 +46,7 @@ class Results extends React.Component {
               store3stock={
                 item.stockByStoreGUID["ad43020a-978c-45d5-8b10-ff2841866448"]
               }
+              type={ item.productType }
             />
           ))}
         </div>

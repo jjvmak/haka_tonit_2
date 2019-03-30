@@ -12,11 +12,27 @@ class App extends React.Component {
     this.state = {
       productCategory: "",
       productList: [],
-      navDisplay: ""
+      navDisplay: "",
+      allProducts: [],
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var that = this;
+    fetch("/api/products/")
+    .then(function(response) {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    })
+    .then(function(data) {
+      that.setState({ allProducts: data });
+    console.log(data);
+
+    });
+
+  }
 
   findProducts(item) {
     this.setState({ productCategory: item, navDisplay: "inline-block" });
@@ -47,7 +63,6 @@ class App extends React.Component {
   }
 
   renderContent() {
-    console.log(this.state.productList);
 
     return (
       <div className="container">
@@ -87,7 +102,7 @@ class App extends React.Component {
 
         <div className="content">
           {!this.state.productCategory !== "" && (
-            <Results productList={this.state.productList} />
+            <Results productList={this.state.productList} allProducts={this.state.allProducts} />
           )}
 
           
@@ -100,6 +115,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return <div className="wrapper">{this.renderContent()}</div>;
   }
 }
