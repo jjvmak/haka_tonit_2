@@ -47,7 +47,7 @@ var foodWords = ["Pizza", "Chocolate Bar", "Gum", "Bread"];
 const foods = products.filter(
     product => foodWords.includes(product.productType)
 );
-var drinkWords = ["Premium Cider", "Alcohol Free Wine", "Special Water", "Cider", "Lemonade", "Cola"];
+var drinkWords = ["Premium Cider", "Alcohol Free Wine", "Special Water", "Cider", "Lemonade", "Cola", "Beer"];
 const drinks = products.filter(
     product => drinkWords.includes(product.productType)
 );
