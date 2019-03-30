@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // import axios from 'axios';
 import "./stylesheet.css";
 import Results from "./Results.js";
+import logo from "./r-market.png";
 
 class App extends React.Component {
   constructor(props) {
@@ -67,7 +68,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <div className="toolbar">
-          <h1>G-Market</h1>
+          {/* <h1>G-Market</h1> */}
+          <img className="logo" src={logo} alt="R-Market Logo"></img>
           <ul>
             <li
               className="navLink"
