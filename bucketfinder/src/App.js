@@ -21,6 +21,7 @@ class BucketMap extends Component {
     this.state = {
       buckets: [],
       stores: [],
+      currentBucket: [],
       showBucket: false
     };
     this.openBucket = this.openBucket.bind(this);
@@ -28,12 +29,37 @@ class BucketMap extends Component {
   }
 
   openBucket(storeId) {
+    this.setState({ currentBucket: this.state.currentBucket = [] })
     // event.preventDefault();
-    console.log(this.state.showBucket)
-    console.log(storeId)
-    this.setState({ showBucket: true }, () => {
-      document.addEventListener('click', this.closeBucket);
+    // console.log(this.state.showBucket)
+    // console.log(storeId.storeId)
+
+    var guids = this.state.buckets.map((bucket) => {
+      var name = bucket.productString
+      var keys = Object.keys(bucket.stockByStoreGUID)
+      var values = Object.values(bucket.stockByStoreGUID)
+      for (var i = 0; i < keys.length; i++) {
+        if (keys[i] === storeId.storeId) {
+          var entry = { name: name, value: values[i] }
+          console.log(entry)
+          this.setState({ currentBucket: this.state.currentBucket.push(entry) })
+        }
+      }
+      return "200ok"
     });
+    console.log(this.state.currentBucket)
+
+
+    // for (var i = 0; i < this.state.buckets.length; i++) {
+    //   var bucket = this.state.buckets[i];
+    //   console.log(Object.keys(bucket.stockByStoreGUID));
+
+    // }
+    // console.log(this.state.currentBucket)
+    // this.setState({ showBucket: true }, () => {
+    //   document.addEventListener('click', this.closeBucket);
+    // });
+
   }
 
   closeBucket(event) {
@@ -135,9 +161,10 @@ class BucketMap extends Component {
                       this.bucketMenu = element;
                     }}
                   >
-                    <button> Menu item 1 </button>
-                    <button> Menu item 2 </button>
-                    <button> Menu item 3 </button>
+                    <h1>:D</h1>
+                    <h1>:D</h1>
+                    <h1>:D</h1>
+                    <h1>:D</h1>
                   </div>
                 )
                 : (

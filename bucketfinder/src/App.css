@@ -11,3 +11,12 @@ a {
 a:hover {
   color: #eb3d00
 }
+
+.menu {
+  background-color: rgb(230, 230, 230);
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: 1%;
+  left: -10%;
+}
