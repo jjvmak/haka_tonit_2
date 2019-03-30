@@ -38,10 +38,10 @@ class BucketMap extends Component {
   // map props
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 60.4500,
+      lng: 22.2933
     },
-    zoom: 11
+    zoom: 5
   };
 
   // rendering
@@ -49,11 +49,18 @@ class BucketMap extends Component {
     console.log(this.state.asd);
     return (
       <div>
-        <div id="header" />
-        <div>
-          {this.state.asd.map(item => (
-            <li key={item.productString}>{item.productString}</li>
-          ))}
+        <div style={{
+          // header
+          height: "15vh",
+          backgroundColor: "#282c34",
+          color: "white",
+
+        }}>
+          <div>
+            {this.state.asd.map(item => (
+              <li key={item.productString}>{item.productString}</li>
+            ))}
+          </div>
         </div>
         <div style={{ height: "70vh", width: "100%" }}>
           <GoogleMapReact
@@ -64,7 +71,10 @@ class BucketMap extends Component {
             <Marker lat={59.955413} lng={30.337844} />
           </GoogleMapReact>
         </div>
-        <div id="footer" />
+        <div style={{
+          height: "15vh",
+          backgroundColor: "#282c34"
+        }} />
       </div>
     );
   }
