@@ -2,3 +2,8 @@
 package-lock.json
 src/package-lock.json
 src/node_modules
+bucketfinder/.idea/vcs.xml
+bucketfinder/.idea/modules.xml
+bucketfinder/.idea/misc.xml
+bucketfinder/.idea/bucketfinder.iml
+bucketfinder/.idea/workspace.xml
